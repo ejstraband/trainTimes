@@ -1,15 +1,38 @@
-
-  // Initialize Firebase
+// Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCzHNerfuY3xgdFw3v8qXSMibV4agCoX_I",
-    authDomain: "timetables-54a3e.firebaseapp.com",
-    databaseURL: "https://timetables-54a3e.firebaseio.com",
-    projectId: "timetables-54a3e",
+    apiKey: "AIzaSyAK4F8cMsIHlgrHAQCqLT2yYpe8k48xGBE",
+    authDomain: "timetables-b0a7b.firebaseapp.com",
+    databaseURL: "https://timetables-b0a7b.firebaseio.com",
+    projectId: "timetables-b0a7b",
     storageBucket: "",
-    messagingSenderId: "954313134492"
+    messagingSenderId: "767292813576"
   };
   firebase.initializeApp(config);
 
-  database = firebase.database();
+var database = firebase.database();
+// variables to push in
+var newTrainName = "";
+var newDestination = "";
+var newFirstTime = "";
+var newFrequency = "";
 
-  
+// capture new train entry
+  // on submit
+  $("#newTrainSubmission").click(function(e) {
+    // keep the page from refreshing
+    e.preventDefault();
+
+    // grab the form fields into the variables
+    newTrainName = $("#trainName").val().trim();
+    newDestination = $("#destination").val().trim();
+    newFirstTime = $("#firstTrainTime").val().trim();
+    newFrequency = $("#frequency").val().trim();
+
+    // send the values to the database
+    database.ref().push({
+      trainName: newTrainName,
+      destination: newDestination,
+      startTime: newFirstTime,
+      frequency: newFrequency
+    });
+  });
