@@ -56,19 +56,21 @@ var newFrequency = "";
     console.log(frequencyTd);
 
     // calculate times
-    var startTimeConverted = moment(startTd, "hh:mm").subtract(1, "years");
+    var startTimeConverted = moment(startTd, "HH:mm").subtract(1, "years");
     console.log(startTimeConverted);
 
     var now = moment();
-    console.log(moment(now).format("hh:mm"));
+    console.log(moment(now).format("HH:mm"));
 
     var minutesSinceStart = moment().diff(moment(startTimeConverted), "minutes");
     console.log(minutesSinceStart);
 
-    var minutesUntil  = minutesSinceStart % frequencyTd;
-    console.log(minutesUntil);
+    var minutesDiff  = minutesSinceStart % frequencyTd;
+    console.log(minutesDiff);
 
-    var nextTime = moment(now).add(minutesUntil, "minutes").format("hh:mm");
+    var minutesUntil = frequencyTd - minutesDiff;
+
+    var nextTime = moment(now).add(minutesUntil, "minutes").format("HH:mm");
     console.log(nextTime);
 
     var newRow = (
@@ -83,47 +85,5 @@ var newFrequency = "";
     console.log(newRow);
 
     $("#scheduleTable").append(newRow);
-    });  
-
-  // check the snapshot for the new entry
-  database.ref().on("child_added", function(childSnapshot) {
-    now = moment().format("HH:mm");
-    console.log("now: " + now);
-
-  // calculate the next time and minutes to the next train
-  var nextTime = "";
-  var minutesUntil = "";
-
-  // write out the entry to the timetable div
-
-  // $("scheduleTable").append(
-  //   "<tr>" +
-  //   "<td>" + childSnapshot.val().newTrainName + "</td>" +
-  //   "<td>" + childSnapshot.val().newDestination + "</td>" +
-  //   "<td>" + childSnapshot.val().newFirstTime + "</td>" +
-  //   "<td>" + nextTime + "</td>" +
-  //   "<td>" + minutesUntil + "</td>" +   
-  //   "</tr>"
-  //   );
-
-
-  // make an empty row
-  // var newRow = $("<tr>");
-  // console.log(newRow);
-  // make a td for each column
-  // var tdTrainName = $("<td>").text("ThisIsTheTrainName");
-  // var tdTrainDestination = $("<td>").text("ThisIsTheTrainDestination");
-  // var tdTrainFrequency = $("<td>").text("ThisIsTheTrainFrequency");
-  // var tdTrainNextArrival = $("<td>").text("ThisIsTheTrainNextArrival");
-  // var tdTrainMinutesAway = $("<td>").text("ThisIsTheTrainMinutesAway");
-
-  // var fullRow = newRow.html(tdTrainName, tdTrainDestination, tdTrainFrequency, tdTrainNextArrival, tdTrainMinutesAway);  
-  // console.log(fullRow);
-
-  // $("#scheduleTable").append(fullRow);
-  // fill the TD's from the D.B or line54 and line55
-  // append the TD's to the TR
-  // append the TR to the scheduleTable Div
-
-  });
+    });
 
