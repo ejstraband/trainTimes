@@ -55,13 +55,29 @@ var newFrequency = "";
     var frequencyTd = (currentSnapshot.val().frequency);
     console.log(frequencyTd);
 
+    // calculate times
+    var startTimeConverted = moment(startTd, "hh:mm").subtract(1, "years");
+    console.log(startTimeConverted);
+
+    var now = moment();
+    console.log(moment(now).format("hh:mm"));
+
+    var minutesSinceStart = moment().diff(moment(startTimeConverted), "minutes");
+    console.log(minutesSinceStart);
+
+    var minutesUntil  = minutesSinceStart % frequencyTd;
+    console.log(minutesUntil);
+
+    var nextTime = moment(now).add(minutesUntil, "minutes").format("hh:mm");
+    console.log(nextTime);
+
     var newRow = (
     "<tr>" +
     "<td>" + trainTd  + "</td>" +
     "<td>" + destinationTd + "</td>" +
     "<td>" + frequencyTd + "</td>" +
-    "<td>" + "nextTime" + "</td>" +
-    "<td>" + "minutesUntil" + "</td>" +   
+    "<td>" + nextTime + "</td>" +
+    "<td>" + minutesUntil + "</td>" +   
     "</tr>"
     );
     console.log(newRow);
@@ -110,3 +126,4 @@ var newFrequency = "";
   // append the TR to the scheduleTable Div
 
   });
+
