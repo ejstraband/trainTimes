@@ -73,13 +73,18 @@ var newFrequency = "";
     var nextTime = moment(now).add(minutesUntil, "minutes").format("HH:mm");
     console.log(nextTime);
 
+    // fix the space in this variable
+    var trainButtonID = trainTd.trim();
+
     var newRow = (
     "<tr>" +
     "<td>" + trainTd  + "</td>" +
     "<td>" + destinationTd + "</td>" +
     "<td>" + frequencyTd + "</td>" +
     "<td>" + nextTime + "</td>" +
-    "<td>" + minutesUntil + "</td>" +   
+    "<td>" + minutesUntil + "</td>" +
+    "<td>" + "<button class='edit' id='edit" + trainButtonID + "'> Edit Train </button>"  + "</td>" +
+    "<td>" + "<button class='delete' id='delete" + trainButtonID + "'> Delete Train </button>"  + "</td>" +
     "</tr>"
     );
     console.log(newRow);
