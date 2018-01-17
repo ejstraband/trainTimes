@@ -1,4 +1,83 @@
 header {
-	background: black;
+	background: #383637;
 	color: white;
+}
+
+body {
+	background-image: url("../images/background.jpg");
+	background-position: center;
+	color: white;
+
+}
+
+#mainTitle {
+	font-size: 75px;
+	padding-top: 10px;
+	font-family: got;
+	
+}
+
+#klss {
+		/*font-family: got;*/
+		font-size: 35px;
+		padding-top: 55px;
+		padding-bottom: 20px;
+		color: #383637;
+		font-weight: bold;
+}
+
+#mainTitle {
+	text-align: center;
+}
+
+#kljpg {
+	width: 200px;
+	float: left;
+	padding-right: 5px;
+}
+
+button {
+	margin: 5px;
+	font-family: got;
+	font-size: 15;
+}
+
+#scheduleDiv {
+	float: clear;
+}
+
+#currentSchedule {
+	font-family: luminari;
+}
+
+table {
+	background-color: #383637;
+	padding: 10px;
+	font-size: 20px;
+}
+
+th {
+	padding: 8px;
+	font-family: got;
+}
+
+#addTrain {
+	background-color: #383637;
+	padding: 10px;
+	font-family: luminari;
+	width: 300px;
+}
+
+h5 {
+	font-family: got;
+}
+
+@font-face {
+	font-family: got;
+	src: url(../fonts/gameOfThrones.ttf);
+}
+
+@font-face {
+	font-family: luminari;
+	src: url(../fonts/Luminari.ttf);
 }

@@ -74,7 +74,7 @@ var newFrequency = "";
     console.log(nextTime);
 
     // fix the space in this variable
-    var trainButtonID = trainTd.trim();
+    var trainButtonID = trainTd.replace(/ /g,'');
 
     var newRow = (
     "<tr>" +
@@ -83,12 +83,30 @@ var newFrequency = "";
     "<td>" + frequencyTd + "</td>" +
     "<td>" + nextTime + "</td>" +
     "<td>" + minutesUntil + "</td>" +
-    "<td>" + "<button class='edit' id='edit" + trainButtonID + "'> Edit Train </button>"  + "</td>" +
-    "<td>" + "<button class='delete' id='delete" + trainButtonID + "'> Delete Train </button>"  + "</td>" +
+    // "<td>" + "<button class='edit' id='edit" + trainButtonID + "'> Edit Train </button>"  + "</td>" +
+    "<td>" + "<button class='delete' id='" + trainButtonID + "'> Delete</button>"  + "</td>" +
     "</tr>"
     );
     console.log(newRow);
 
+    // delete a train
+    //   capture the button click
+    $(document).on("click", ".delete", function() {
+    console.log("delete button clicked");
+    // harvest the ID of the delete button
+    deleteID = $(this).attr("id");
+    console.log(deleteID);
+    //   find the train ID in firebase
+    
+    //   remove the entry from firebase
+
+    });
+
+
     $("#scheduleTable").append(newRow);
     });
+
+// edit a train
+  // capture the button click
+  // No idea how to structure the UI for this. Maybe a Modal?
 

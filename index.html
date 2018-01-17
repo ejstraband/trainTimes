@@ -2,9 +2,12 @@
 <html>
 
 <head>
-	<title>Train Times</title>
+	<title>Traverse the 7 Realms</title>
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 	<!-- JQuery -->
 	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
@@ -15,15 +18,19 @@
 <body>
 
 	<header>
-		<h1>Train Times</h1>
+		<p id="mainTitle">Traverse Westeros</p>
 	</header>
-	
-	<hr>
 
-	<section id="currentSchedule"</h1>
-		<h2>Current Train Schedule</h2>
+	<section id="currentSchedule">
+		
+		<img id="kljpg" src="assets/images/kingsLanding.jpg">
+		
+		<div>
+		<p id="klss"> King's Landing Station Schedule</p>
+		</div>
 
-		<table id="scheduleTable">
+		<div id="scheduleDiv">
+		<table class="w3-centered" id="scheduleTable">
 			<tr>
 				<th>Train Name</th>
 				<th>Destination</th>
@@ -31,14 +38,15 @@
 				<th>Next Arrival</th>
 				<th>Minutes Away</th>
 			</tr>
-
 		</table>
+		</div>
 	</section>
 
-	<hr>
+	<br>
 
+	<div id="bottomHalf">
 	<section id="addTrain">
-		<h2>Add Train</h2>
+		<h5>Add Train</h5>
 
 		<form>
 			<p>Train Name</p>
@@ -60,6 +68,7 @@
 
 	</section>
 
+	</div>
 	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 	<script type="text/javascript" src="assets/javascript/timeTable.js">
 	</script>
